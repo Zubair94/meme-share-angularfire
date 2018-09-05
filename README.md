@@ -1,6 +1,6 @@
-# MemeShare
+# Meme Share
 
-MemeShare is an App to Share Personal Memes that may be forgotten for later usage.
+Meme Share is an App to Share Personal Memes that may be forgotten for later usage.
 
 ## Development server
 
