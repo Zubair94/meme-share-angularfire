@@ -1,3 +1,47 @@
-<p>
-  meme works!
-</p>
+<header class="py-2 bg-success text-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h3><fa-icon [icon]="faArchive"></fa-icon> Meme</h3>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="py-2 mb-4 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+       <a (click)="onAdd()" class="btn btn-danger btn-block">
+        <fa-icon [icon]="faPlus"></fa-icon> Add
+       </a>
+      </div>
+      <div class="col-md-3">
+        <a (click)="onInvite()" class="btn btn-warning btn-block">
+          <fa-icon [icon]="faUserPlus"></fa-icon> Invite
+         </a>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="row">
+      <div *ngFor="let u of user; let i = index;">
+        <div class="col-md-3 m-auto p-2">
+          <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <blockquote class="blockquote mb-0">
+                <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+              </blockquote>
+              <a (click)="onDetails()" class="btn btn-info">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="(i+1)%3 === 0" class="w-100"></div>
+      </div>
+    </div>
+  </div>
+</section>

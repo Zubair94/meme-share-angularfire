@@ -1,16 +1,41 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" routerLink="/meme">
-    <img src="/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-    Meme Share
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" routerLink="/meme">Meme</a>
-      <a class="nav-item nav-link" routerLink="/login">Login</a>
-      <a class="nav-item nav-link" (click)="onLogout">Logout</a>
-    </div>
-  </div>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+    <a routerLink="/meme" class="navbar-brand" id="brand">Meme Boyz</a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#mainNavbar">
+      <span class="navbar-toggler-icon">
+      </span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item px-2">
+          <a routerLink="/meme" class="nav-link">
+            <fa-icon [icon]="faArchive"></fa-icon> Memes
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li *ngIf="checkLogin()" class="nav-item mr-3" ngbDropdown>
+          <a class="nav-link" ngbDropdownToggle>
+            <fa-icon [icon]="faUser"></fa-icon> Welcome Boy
+          </a>
+          <div ngbDropdownMenu>
+            <a (click)="onProfile()" class="dropdown-item">
+              <fa-icon [icon]="faUserCircle"></fa-icon> Profile
+            </a>
+            <a (click)="onInvite()" class="dropdown-item">
+              <fa-icon [icon]="faUserPlus"></fa-icon> Invite
+            </a>
+          </div>
+        </li>
+        <li *ngIf="!checkLogin()" class="nav-item">
+          <a routerLink="/login" class="nav-link">
+            <fa-icon [icon]="faSignInAlt"></fa-icon> Login
+          </a>
+        </li>
+        <li *ngIf="checkLogin()" class="nav-item">
+          <a (click)="onLogout()" class="nav-link">
+            <fa-icon [icon]="faSignOutAlt"></fa-icon> Logout
+          </a>
+        </li>
+      </ul>
+    </div>   
 </nav>
